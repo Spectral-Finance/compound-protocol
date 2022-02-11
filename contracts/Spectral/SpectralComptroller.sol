@@ -7,8 +7,6 @@ import "../Comptroller.sol";
 
 contract SpectralComptroller is Comptroller {
 
-    bytes32 public constant LENDING_ID = 0x000000000000000000000000000000009348f5ba3f574f65958a675e468da9c8;
-
     function spectralAdmin() public view returns (ISpectralComptrollerAdmin) {
         // todo change address
         return ISpectralComptrollerAdmin(address(0));
@@ -20,7 +18,7 @@ contract SpectralComptroller is Comptroller {
     }
 
     function borrowAllowed(address cToken, address borrower, uint borrowAmount) external returns (uint) {
-        IScoracle.ScoreData memory data = scoracle().getScore(borrower, LENDING_ID);
+        IScoracle.ScoreData memory data = scoracle().getScore(borrower, spectralAdmin().scoreId());
         require(data.score >= spectralAdmin().minScore(), "SCORE_TOO_LOW");
         require(block.timestamp - data.lastUpdated <= spectralAdmin().maxAge(), "SCORE_EXPIRED");
         return super.borrowAllowed(cToken, borrower, borrowAmount);
