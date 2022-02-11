@@ -17,7 +17,7 @@ contract SpectralComptroller is Comptroller {
         return IScoracle(address(0));
     }
 
-    function borrowAllowed(address cToken, address borrower, uint borrowAmount) external returns (uint) {
+    function borrowAllowed(address cToken, address borrower, uint borrowAmount) public returns (uint) {
         IScoracle.ScoreData memory data = scoracle().getScore(borrower, spectralAdmin().scoreId());
         require(data.score >= spectralAdmin().minScore(), "SCORE_TOO_LOW");
         require(block.timestamp - data.lastUpdated <= spectralAdmin().maxAge(), "SCORE_EXPIRED");
