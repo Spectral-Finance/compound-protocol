@@ -7,12 +7,12 @@ import "../Comptroller.sol";
 
 contract SpectralComptroller is Comptroller {
 
-    function spectralAdmin() public view returns (ISpectralComptrollerAdmin) {
+    function spectralAdmin() public pure returns (ISpectralComptrollerAdmin) {
         // todo change address
         return ISpectralComptrollerAdmin(address(0));
     }
 
-    function scoracle() public view returns (IScoracle) {
+    function scoracle() public pure returns (IScoracle) {
         // todo change address
         return IScoracle(address(0));
     }
