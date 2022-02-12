@@ -14,7 +14,7 @@ contract SpectralComptroller is Comptroller {
 
     function scoracle() public pure returns (IScoracle) {
         // todo change address
-        return IScoracle(address(0));
+        return IScoracle(address(0x93C69C64233D2911c9dFAd7F0CfB119535E9095b));
     }
 
     function borrowAllowed(address cToken, address borrower, uint borrowAmount) public returns (uint) {
