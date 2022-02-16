@@ -9,7 +9,7 @@ contract SpectralComptroller is Comptroller {
 
     function spectralAdmin() public pure returns (ISpectralComptrollerAdmin) {
         // todo change address
-        return ISpectralComptrollerAdmin(address(0));
+        return ISpectralComptrollerAdmin(0x9b1D0b0cBD79a9a710E3653d1E68b8A93b87d86a);
     }
 
     function scoracle() public pure returns (IScoracle) {
